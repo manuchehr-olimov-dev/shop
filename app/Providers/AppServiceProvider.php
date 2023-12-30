@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
         $kernel = app(Kernel::class);
         $kernel->whenRequestLifecycleIsLongerThan(
-            CarbonInterval::second(4),
+            CarbonInterval::second(5),
             function(){
                 logger()
                     ->channel('telegram')
