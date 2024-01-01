@@ -42,9 +42,10 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->foreignIdFor(Product::class)
+                ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+                ->nullOnDelete();
         });
     }
 
