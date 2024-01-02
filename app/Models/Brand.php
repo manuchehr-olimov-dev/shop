@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Model\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,8 +13,7 @@ class Brand extends Model
 
     protected $fillable = [
         'slug',
-        'title',
-        'thumbnail'
+        'title'
     ];
     /**
      * @var \Illuminate\Support\Stringable|mixed|__anonymous@6587

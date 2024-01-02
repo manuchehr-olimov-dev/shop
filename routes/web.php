@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (){
-
-    throw new \App\Services\Telegram\Exceptions\TelegramBotApiException('123');
     return view('welcome');
+});
+
+Route::get('test', function (){
+    return 'Hi';
 });
 
