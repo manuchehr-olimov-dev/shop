@@ -1,0 +1,12 @@
+@extends('layouts.app')
+
+
+@section('content')
+    @auth
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Logout</button>
+        </form>
+    @endauth
+@endsection

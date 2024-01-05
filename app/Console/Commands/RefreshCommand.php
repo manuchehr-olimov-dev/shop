@@ -19,7 +19,7 @@ class RefreshCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Refresh tables and do seeding';
+    protected $description = "Refresh tables and do seeding";
 
     /**
      * Execute the console command.
@@ -30,8 +30,10 @@ class RefreshCommand extends Command
             return self::FAILURE;
         }
 
+        Storage::delete(
+            Storage::files('public/images/products')
+        );
 
-        Storage::deleteDirectory(storage_path();
         $this->call('migrate:fresh', [
             '--seed' => 'true'
         ]);
