@@ -1,11 +1,11 @@
 @extends('layouts/auth')
 
-@section('title', 'Забыли пароль пароль')
+@section('title', 'Забыли пароль')
 
 @section('content')
     <x-forms.auth-form
         title="Забыли пароль"
-        action="{{ route('password.email') }}"
+        action="{{ route('forgot-password.handle') }}"
         method="POST"
     >
         @csrf
@@ -35,7 +35,7 @@
                 <div class="text-xxs md:text-xs"><a href="{{ route('login') }}" class="text-white hover:text-white/70 font-bold">Войти в аккаунт</a></div>
             </div>
             <div class="space-y-3 mt-5">
-                <div class="text-xxs md:text-xs"><a href="{{ route('signUp') }}" class="text-white hover:text-white/70 font-bold">Зарегестрироваться</a></div>
+                <div class="text-xxs md:text-xs"><a href="{{ route('register') }}" class="text-white hover:text-white/70 font-bold">Зарегестрироваться</a></div>
             </div>
         </x-slot:buttons>
     </x-forms.auth-form>

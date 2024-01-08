@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Services\Telegram\Exceptions;
+namespace Services\Telegram\Exceptions;
 
-
-use Illuminate\Http\Client\Request;
 
 class TelegramBotApiException extends \Exception
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\Telegram;
+namespace Services\Telegram;
 
-use App\Services\Telegram\Exceptions\TelegramBotApiException;
 use Illuminate\Support\Facades\Http;
+use Services\Telegram\Exceptions\TelegramBotApiException;
 
 class TelegramBotApi
 {
@@ -24,5 +24,11 @@ class TelegramBotApi
             return false;
         }
     }
+
+    public static function getHost(): string
+    {
+        return self::HOST;
+    }
+
 
 }

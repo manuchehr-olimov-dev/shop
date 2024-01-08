@@ -7,7 +7,7 @@
     @dump(request())
     <x-forms.auth-form
         title="Сброс пароля"
-        action="{{ route('password.update') }}"
+        action="{{ route('reset-password.handle') }}"
         method="POST"
     >
         @csrf

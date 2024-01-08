@@ -5,7 +5,7 @@
 @section('content')
     <x-forms.auth-form
         title="Вход в аккаунт"
-        action="{{ route('signIn') }}"
+        action="{{ route('login.handle') }}"
         method="POST"
     >
        <x-forms.text-input
@@ -54,8 +54,8 @@
 
         <x-slot:buttons>
             <div class="space-y-3 mt-5">
-                <div class="text-xxs md:text-xs"><a href="{{ route('password.request') }}" class="text-white hover:text-white/70 font-bold">Забыли пароль?</a></div>
-                <div class="text-xxs md:text-xs"><a href="{{ route('signUp') }}" class="text-white hover:text-white/70 font-bold">Зарегистрироваться</a></div>
+                <div class="text-xxs md:text-xs"><a href="{{ route('forgot-password') }}" class="text-white hover:text-white/70 font-bold">Забыли пароль?</a></div>
+                <div class="text-xxs md:text-xs"><a href="{{ route('register') }}" class="text-white hover:text-white/70 font-bold">Зарегистрироваться</a></div>
             </div>
         </x-slot:buttons>
    </x-forms.auth-form>
