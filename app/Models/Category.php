@@ -2,19 +2,27 @@
 
 namespace App\Models;
 
-use App\Traits\Model\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Query\Builder;
 
 class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
         'slug',
-        'title'
+        'title',
+        'on_home_page',
+        'sorting'
     ];
 
+    public function scopeHomePage(Builder $query)
+    {
+        $query->where('on_home_page', true)
+            ->orderBy('sorting')
+            ->limit(6);
+    }
     protected static function boot(): void
     {
         parent::boot();

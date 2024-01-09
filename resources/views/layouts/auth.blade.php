@@ -10,13 +10,9 @@
     </title>
     @vite(['resources/css/app.css', 'resources/sass/main.sass', 'resources/js/app.js'])
 </head>
-<body>
-<div class="antialiased">
-    @if($message = flash()->get())
-        <div class="{{ $message->class() }}">
-            {{ $message->message() }}
-        </div>
-    @endif
+<body class="antialiased">
+    @include('shared.flash')
+    @include('shared.header')
 
     <main class="md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">
         <div class="container">
@@ -30,6 +26,9 @@
 
         </div>
     </main>
-</div>
+
+    @include('shared.footer')
 </body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </html>

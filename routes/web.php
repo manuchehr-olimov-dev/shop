@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 require_once __DIR__ . '/user/auth.php';
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', HomeController::class)
+    ->name('home');
 
 
 

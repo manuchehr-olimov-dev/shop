@@ -8,29 +8,15 @@
     <title>@yield('title', env("APP_NAME"))</title>
     @vite(['resources/css/app.css', 'resources/sass/main.sass', 'resources/js/app.js'])
 </head>
-<body>
-<div class="antialiased">
-    @if($message = flash()->get())
-        <div class="{{ $message->class() }}">
-            {{ $message->message() }}
-        </div>
-    @endif
+<body class="antialiased">
 
-    @yield('content')
+        @include('shared.flash')
+        @include('shared.header')
 
-{{--    <main class="md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">--}}
-{{--        <div class="container">--}}
+        @yield('content')
 
-{{--            <div class="text-center">--}}
-{{--                <a href="{{route('home')}}" class="inline-block" rel="home">--}}
-{{--                    <img src="{{Vite::image('logo.svg')}}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            --}}
-{{--            @yield('content')--}}
-
-{{--        </div>--}}
-{{--    </main>--}}
-</div>
+        @include('shared.footer')
 </body>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </html>

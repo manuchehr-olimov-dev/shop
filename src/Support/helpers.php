@@ -9,3 +9,4 @@ if (!function_exists('flash')) {
         return app(Flash::class);
     }
 }
+
