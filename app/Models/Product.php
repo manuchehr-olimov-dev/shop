@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\Model\HasSlug;
+use App\Casts\Product\PriceCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,6 +23,10 @@ class Product extends Model
         'sorting'
     ];
 
+    protected $casts = [
+        'price' => PriceCast::class
+    ];
+
     public function scopeHomePage(Builder $query): void
     {
         $query->where('on_home_page', true)
@@ -33,10 +37,6 @@ class Product extends Model
     protected static function boot(): void
     {
         parent::boot();
-
-//        static::creating(function (Product $product){
-//            $product->slug = $product->slug ?? str($product->title)->slug();
-//        });
     }
 
     public function brand(): BelongsTo
