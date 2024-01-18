@@ -30,7 +30,7 @@
                     <!-- Filters -->
                     <aside class="basis-2/5 xl:basis-1/4 ">
                         <form action="{{ route('catalog', $category) }}" class="overflow-auto max-h-[320px] lg:max-h-[100%] space-y-10 p-6 2xl:p-8 rounded-2xl bg-card">
-                            <!-- Filter item -->
+                            <!-- Filters item -->
                             <div>
                                 <h5 class="mb-4 text-sm 2xl:text-md font-bold">Цена</h5>
                                 <div class="flex items-center justify-between gap-3 mb-2">
@@ -55,7 +55,7 @@
                                         placeholder="До">
                                 </div>
                             </div>
-                            <!-- Filter item -->
+                            <!-- Filters item -->
                             <div>
                                 <h5 class="mb-4 text-sm 2xl:text-md font-bold">Бренд</h5>
 
@@ -73,7 +73,7 @@
 
 
                             </div>
-                            <!-- Filter item -->
+                            <!-- Filters item -->
                             <div>
                                 <h5 class="mb-4 text-sm 2xl:text-md font-bold">Цвет</h5>
                                 <div class="form-checkbox">
@@ -101,7 +101,7 @@
                                     <label for="filters-item-14" class="form-checkbox-label">Серый</label>
                                 </div>
                             </div>
-                            <!-- Filter item -->
+                            <!-- Filters item -->
                             <div>
                                 <h5 class="mb-4 text-sm 2xl:text-md font-bold">Подсветка</h5>
                                 <div class="form-checkbox">
@@ -160,10 +160,12 @@
                                         {{-- Если в запросе есть фильтр брендов/цены, то сохраняем их,
                                             чтобы при применнении других фильтрова, нынешние не слетели
                                          --}}
-                                        @if(array_key_exists('brands', request('filters')))
-                                            @foreach(request('filters.brands') as $brandId => $on)
-                                                    <input type="hidden" value="on"  name="filters[brands][{{ $brandId }}]">
-                                            @endforeach
+                                        @if(request('filters') !== null)
+                                            @if(array_key_exists('brands', request('filters')))
+                                                @foreach(request('filters.brands') as $brandId => $on)
+                                                        <input type="hidden" value="on"  name="filters[brands][{{ $brandId }}]">
+                                                @endforeach
+                                            @endif
                                         @endif
 
                                         <input type="hidden"  value="{{ request('filters.price.from') }}" name="filters[price][from]">
@@ -180,7 +182,7 @@
 
                         <!-- Page pagination -->
                         <div class="mt-12">
-                            {{$products->links()}}
+                            {{$products->withQueryString()}}
                         </div>
                     </div>
                 </div>
