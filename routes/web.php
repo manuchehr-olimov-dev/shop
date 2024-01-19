@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/catalog.php';
+require_once __DIR__ . '/product.php';
 
 Route::get('/', HomeController::class)
     ->name('home');
